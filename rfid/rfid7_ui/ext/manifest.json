@@ -1,0 +1,36 @@
+{
+    "name": "Dairyland RFID",
+    "version": "1.0",
+    "description": "Dairyland RFID",  
+    "permissions": ["tabs","activeTab", "declarativeContent","storage","http://localhost:8000/*" ],	
+	"background": {
+      "scripts": ["background.js"],
+      "persistent": true
+    },
+	"browser_action": {
+      "default_popup": "popup.html",
+	  "default_icon": {
+        "16": "get_started16.png",
+        "32": "get_started32.png",
+        "48": "get_started48.png",
+        "128": "get_started128.png"
+      }
+    },
+	"externally_connectable": {
+		"ids" : ["ncaahfhclojalfgeiopbamlalgjhclok" ],
+		"matches": ["http://104.154.157.222:8080/*"],
+		"accepts_tls_channel_id": false
+	},
+	"content_scripts": [{
+		"matches": [ "http://104.154.157.222:8080/*" ],
+		"js": ["content-script.js"]
+	}],
+    "icons": {
+      "16": "get_started16.png",
+      "32": "get_started32.png",
+      "48": "get_started48.png",
+      "128": "get_started128.png"
+    },
+	"manifest_version": 2,
+	"content_security_policy": "script-src 'self'; object-src 'self'"
+}
