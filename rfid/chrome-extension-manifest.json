@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "Dairyland RFID",
+  "version": "1.0.0",
+  "description": "Dairyland RFID Extension for managing RFID operations",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "http://localhost:8000/*",
+    "http://104.154.157.222:8080/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://104.154.157.222:8080/*"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "externally_connectable": {
+    "ids": ["ncaahfhclojalfgeiopbamlalgjhclok"],
+    "matches": ["http://104.154.157.222:8080/*"]
+  },
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "web_accessible_resources": [
+    "images/*.png"
+  ]
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairyland Labs RFID</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            padding: 10px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 40px;
+        }
+        input {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dairyland Labs RFID</h1>
+    
+    <div class="button-group">
+        <button id="rfidread" aria-label="Read RFID">Read</button>
+        <button id="rfidwrite" aria-label="Write RFID">Write</button>
+    </div>
+    
+    <div class="input-group">
+        <label for="sid">SID:</label>
+        <input type="text" id="sid" name="sid" maxlength="4" pattern="\d{4}" required aria-label="Sample ID">
+    </div>
+    
+    <div class="input-group">
+        <label for="pid">PID:</label>
+        <input type="text" id="pid" name="pid" maxlength="4" pattern="\d{4}" required aria-label="Product ID">
+    </div>
+    
+    <div class="input-group">
+        <label for="bar">BAR:</label>
+        <input type="text" id="bar" name="bar" maxlength="12" pattern="\d{12}" required aria-label="Barcode">
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
